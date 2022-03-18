@@ -16,7 +16,7 @@ def instagram_contato():
     return(input("Instagram: "))
 
 def compilado_dados(nome, telefone, email, instagram, twitter):
-     print("Nome: %s, Telefone: %s, Email: %s, Twitter: %s, Instagram %s." % (nome, telefone, email, twitter, instagram))
+     print("Nome: %s, Telefone: %s, Email: %s, Twitter: %s, Instagram: %s." % (nome, telefone, email, twitter, instagram))
      
 def apaga():
      global agenda
@@ -35,7 +35,7 @@ def novo():
      twitter = twitter_contato()
      instagram = instagram_contato()
      agenda.append([nome, telefone, email, twitter, instagram])
-     print("Contato cadastrado")
+     print("Contato cadastrado.")
      
                
 def contato_interno(nome):
@@ -65,7 +65,7 @@ def edicao():
          agenda[o] = [nome, telefone, email, twitter, instagram]
          print("Contato Editado.")
      else:
-         print("Contato nao encontrado.")
+         print("Contato não encontrado.")
 
 def lista():
      print("Agenda:")
@@ -79,16 +79,16 @@ def retorno_menu(opcao, inicio, fim):
                if inicio <= numero <= fim:
                    return(numero)
          except ValueError:
-               print("Opcao invalida, favor digitar uma opcao valida entre %d e %d." % (inicio, fim))
+               print("Opção inválida, favor digitar uma opção válida entre %d e %d." % (inicio, fim))
 
 def achar():
      global agenda
      nome = input("Digite o nome do contato a ser exibido: ")
      for e in agenda:
             if nome == e[0]:
-                print(e[1], e[2], e[3], e[4])
+                print("Nome:",e[0],",","Telefone:",e[1],",","Email:", e[2],",","Twitter:", e[3],",","Instagram:", e[4],".")
             else:
-                print("Contato nao encontrado")
+                print("Contato não encontrado.")
                
 
 def simultaneo():
@@ -100,9 +100,9 @@ def simultaneo():
           twitter = twitter_contato()
           instagram = instagram_contato()
           agenda.append([nome, telefone, email, twitter, instagram])
-          print("Contato cadastrado")
+          print("Contato cadastrado.")
      else:
-          print("Numero invalido, por favor digite um numero valido.")
+          print("Número inválido, por favor digite um número válido.")
                     
            
      
@@ -115,8 +115,7 @@ def menu():
    3 - Remover Contato
    4 - Lista de Contatos
    5 - Vizualizar Contato
-   6 - Adicionar Varios Contatos 
-
+   6 - Adicionar Vários Contatos 
    0 - Sair
 """)
      return retorno_menu("Escolha uma opção: ",0,6)
@@ -137,10 +136,3 @@ while True:
          achar()
      elif opcao == 6:
           simultaneo()
-
-
-     
-     
-     
-
-
