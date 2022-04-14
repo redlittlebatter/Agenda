@@ -18,6 +18,7 @@ def instagram_contato():
 def compilado_dados(nome, telefone, email, instagram, twitter):
      print("Nome: %s, Telefone: %s, Email: %s, Twitter: %s, Instagram: %s." % (nome, telefone, email, twitter, instagram))
      
+         
 def apaga():
      global agenda
      nome = nome_contato()
@@ -27,7 +28,7 @@ def apaga():
           del agenda[o]
      else:
          print("Contato não encontrado.")
-     
+         
 def novo():
      nome = nome_contato()
      telefone = telefone_contato()
@@ -35,9 +36,14 @@ def novo():
      twitter = twitter_contato()
      instagram = instagram_contato()
      agenda.append([nome, telefone, email, twitter, instagram])
+     arquivo = nome
+     arquivo = open(nome + ".txt","a")
+     for e in agenda:
+        arquivo.write("Nome: %s, Telefone: %s, Email: %s, Twitter: %s, Instagram: %s.\n" % (e[0], e[1], e[2],e[3],e[4]))
+     arquivo.close()
      print("Contato cadastrado.")
-     
-               
+
+    
 def contato_interno(nome):
      qnome = nome.lower()
      for o, e in enumerate(agenda):
@@ -67,6 +73,7 @@ def edicao():
      else:
          print("Contato não encontrado.")
 
+
 def lista():
      print("Agenda:")
      for e in agenda:
@@ -92,19 +99,26 @@ def achar():
                
 
 def simultaneo():
+     
      option2 = int(input("Gostaria de adicionar quantos?"))
+     if option2 == 0:
+          print("Número inválido, retorne ao menu.")
+          return retorno_menu("Escolha uma opção: ",0,6)
      while option2 >= 1:
+          option2 -= 1
           nome = nome_contato()
           telefone = telefone_contato()
-          email = email_contato()
+          email = email_contato() 
           twitter = twitter_contato()
           instagram = instagram_contato()
           agenda.append([nome, telefone, email, twitter, instagram])
           print("Contato cadastrado.")
-     else:
-          print("Número inválido, por favor digite um número válido.")
-                    
-           
+          arquivo = nome
+          nome = open(nome + ".txt","a")
+          for e in agenda:
+               nome.write("Nome: %s, Telefone: %s, Email: %s, Twitter: %s, Instagram: %s.\n" % (e[0], e[1], e[2],e[3],e[4]))
+     nome.close()
+                               
      
                 
 def menu():
