@@ -96,30 +96,8 @@ def achar():
                 print("Nome:",e[0],",","Telefone:",e[1],",","Email:", e[2],",","Twitter:", e[3],",","Instagram:", e[4],".")
             else:
                 print("Contato não encontrado.")
-               
 
-def simultaneo():
-     
-     option2 = int(input("Gostaria de adicionar quantos?"))
-     if option2 == 0:
-          print("Número inválido, retorne ao menu.")
-          return retorno_menu("Escolha uma opção: ",0,6)
-     while option2 >= 1:
-          option2 -= 1
-          nome = nome_contato()
-          telefone = telefone_contato()
-          email = email_contato() 
-          twitter = twitter_contato()
-          instagram = instagram_contato()
-          agenda.append([nome, telefone, email, twitter, instagram])
-          print("Contato cadastrado.")
-          arquivo = nome
-          nome = open(nome + ".txt","a")
-          for e in agenda:
-               nome.write("Nome: %s, Telefone: %s, Email: %s, Twitter: %s, Instagram: %s.\n" % (e[0], e[1], e[2],e[3],e[4]))
-     nome.close()
-                               
-     
+
                 
 def menu():
      
@@ -129,10 +107,9 @@ def menu():
    3 - Remover Contato
    4 - Lista de Contatos
    5 - Vizualizar Contato
-   6 - Adicionar Vários Contatos 
    0 - Sair
 """)
-     return retorno_menu("Escolha uma opção: ",0,6)
+     return retorno_menu("Escolha uma opção: ",0,5)
 
 while True:
      opcao = menu()
@@ -148,5 +125,4 @@ while True:
          lista()
      elif opcao == 5:
          achar()
-     elif opcao == 6:
-          simultaneo()
+
