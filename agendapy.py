@@ -71,7 +71,12 @@ def edicao():
          agenda[o] = [nome, telefone, email, twitter, instagram]
          print("Contato Editado.")
      else:
-         print("Contato não encontrado.")
+          print("Contato não encontrado.")
+          arquivo = nome
+     arquivo = open(nome + ".txt","a")
+     for e in agenda:
+        arquivo.write("Nome: %s, Telefone: %s, Email: %s, Twitter: %s, Instagram: %s.\n" % (e[0], e[1], e[2],e[3],e[4]))
+     arquivo.close()
 
 
 def lista():
